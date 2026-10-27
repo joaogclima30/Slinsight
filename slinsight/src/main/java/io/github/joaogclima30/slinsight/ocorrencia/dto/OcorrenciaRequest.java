@@ -14,10 +14,6 @@ public record OcorrenciaRequest(
         @NotBlank(message = "A descrição é obrigatória")
         String descricao,
 
-        @NotNull(message = "O usuário é obrigatório")
-        @Positive(message = "O ID do usuário deve ser positivo")
-        Long usuarioId,
-
         @NotNull(message = "A categoria é obrigatória")
         @Positive(message = "O ID da categoria deve ser positivo")
         Long categoriaId,

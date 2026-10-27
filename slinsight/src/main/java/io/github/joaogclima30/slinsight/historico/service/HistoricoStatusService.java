@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
+import io.github.joaogclima30.slinsight.ocorrencia.service.OcorrenciaService;
 
 @Service
 @RequiredArgsConstructor
@@ -19,14 +20,10 @@ public class HistoricoStatusService {
 
     private final HistoricoStatusRepository repository;
     private final OcorrenciaRepository ocorrenciaRepository;
+    private final OcorrenciaService ocorrenciaService;
 
     public Page<HistoricoStatusResponse> listarPorOcorrencia(Long ocorrenciaId, Pageable pageable) {
-        if (!ocorrenciaRepository.existsById(ocorrenciaId)) {
-            throw new ResponseStatusException(
-                    HttpStatus.NOT_FOUND,
-                    "Ocorrência não encontrada"
-            );
-        }
+        ocorrenciaService.buscarPorId(ocorrenciaId);
 
         return repository
                 .findByOcorrencia_Id(ocorrenciaId, pageable)

@@ -19,3 +19,9 @@ spring:
   sql:
     init:
       mode: never
+  web:
+    error:
+      include-stacktrace: never
+      include-exception: false
+      include-message: never
+      include-binding-errors: never

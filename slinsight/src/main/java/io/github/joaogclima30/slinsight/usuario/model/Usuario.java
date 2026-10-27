@@ -31,6 +31,10 @@ public class Usuario {
     @Column(name = "criado_em", nullable = false, updatable = false)
     private Instant criadoEm;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 20)
+    private PerfilUsuario perfil = PerfilUsuario.CIDADAO;
+
     @PrePersist
     private void antesDeInserir() {
         criadoEm = Instant.now();

@@ -2,6 +2,7 @@ package io.github.joaogclima30.slinsight.usuario.service;
 
 import io.github.joaogclima30.slinsight.usuario.dto.UsuarioRequest;
 import io.github.joaogclima30.slinsight.usuario.dto.UsuarioResponse;
+import io.github.joaogclima30.slinsight.usuario.model.PerfilUsuario;
 import io.github.joaogclima30.slinsight.usuario.model.Usuario;
 import io.github.joaogclima30.slinsight.usuario.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
@@ -33,6 +34,7 @@ public class UsuarioService {
         usuario.setNome(request.nome().strip());
         usuario.setEmail(email);
         usuario.setSenhaHash(passwordEncoder.encode(request.senha()));
+        usuario.setPerfil(PerfilUsuario.CIDADAO);
 
         Usuario salvo = repository.save(usuario);
 

@@ -1,18 +1,18 @@
 package io.github.joaogclima30.slinsight.ocorrencia.controller;
 
+import io.github.joaogclima30.slinsight.common.dto.PaginaResponse;
+import io.github.joaogclima30.slinsight.ocorrencia.dto.AlterarStatusRequest;
 import io.github.joaogclima30.slinsight.ocorrencia.dto.OcorrenciaRequest;
 import io.github.joaogclima30.slinsight.ocorrencia.dto.OcorrenciaResponse;
+import io.github.joaogclima30.slinsight.ocorrencia.model.StatusOcorrencia;
 import io.github.joaogclima30.slinsight.ocorrencia.service.OcorrenciaService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-import io.github.joaogclima30.slinsight.ocorrencia.model.StatusOcorrencia;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
-import io.github.joaogclima30.slinsight.ocorrencia.dto.AlterarStatusRequest;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 
@@ -43,13 +43,16 @@ public class OcorrenciaController {
     }
 
     @GetMapping("/listar")
-    public Page<OcorrenciaResponse> listar(@RequestParam(required = false) Long usuarioId, @RequestParam(required = false) Long categoriaId,
-                                           @RequestParam(required = false) StatusOcorrencia status,
-                                           @PageableDefault(size = 10, sort = {"criadoEm", "id"}, direction = Sort.Direction.DESC) Pageable pageable) {
-        return service.listar(
-                usuarioId,
-                categoriaId,
-                status,
-                pageable);
+    public PaginaResponse<OcorrenciaResponse> listar(
+            @RequestParam(required = false) Long usuarioId,
+            @RequestParam(required = false) Long categoriaId,
+            @RequestParam(required = false) StatusOcorrencia status,
+            @PageableDefault(
+                    size = 10,
+                    sort = {"criadoEm", "id"},
+                    direction = Sort.Direction.DESC) Pageable pageable) {
+
+        return PaginaResponse.de(
+                service.listar(usuarioId, categoriaId, status, pageable));
     }
 }

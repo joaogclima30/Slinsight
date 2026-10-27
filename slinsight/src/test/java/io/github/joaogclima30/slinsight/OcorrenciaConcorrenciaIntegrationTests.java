@@ -53,20 +53,20 @@ class OcorrenciaConcorrenciaIntegrationTests {
         String segundaConexao = "slinsight-concorrencia-" + UUID.randomUUID();
 
         try {
-            var primeira = executor.submit(() -> transacao.execute(status -> {
+            var primeira = executor.submit(() -> AutenticacaoTeste.executarComo(dados.email(), "CIDADAO", () -> transacao.execute(status -> {
                 // Mantem o lock enquanto a segunda transacao tenta alterar a mesma linha.
                 repository.buscarPorIdParaAtualizar(dados.ocorrenciaId()).orElseThrow();
                 bloqueioAdquirido.countDown();
                 aguardar(liberarPrimeira);
                 return service.alterarStatus(dados.ocorrenciaId(),
                         new AlterarStatusRequest(StatusOcorrencia.EM_ANALISE,
-                                dados.usuarioId(), "Primeira alteracao"));
-            }));
+                                "Primeira alteracao"));
+            })));
 
             assertTrue(bloqueioAdquirido.await(10, TimeUnit.SECONDS),
                     "A primeira transacao nao adquiriu o bloqueio");
 
-            var segunda = executor.submit(() -> {
+            var segunda = executor.submit(() -> AutenticacaoTeste.executarComo(dados.email(), "CIDADAO", () -> {
                 try {
                     transacao.executeWithoutResult(status -> {
                         jdbc.queryForObject("select set_config('application_name', ?, true)",
@@ -76,13 +76,13 @@ class OcorrenciaConcorrenciaIntegrationTests {
                                 String.class);
                         service.alterarStatus(dados.ocorrenciaId(),
                                 new AlterarStatusRequest(StatusOcorrencia.EM_ANALISE,
-                                        dados.usuarioId(), "Segunda alteracao"));
+                                        "Segunda alteracao"));
                     });
                     return 200;
                 } catch (ResponseStatusException exception) {
                     return exception.getStatusCode().value();
                 }
-            });
+            }));
 
             // Confirma a espera real no PostgreSQL, sem depender de um sleep fixo.
             esperarBloqueioNoPostgres(segundaConexao);
@@ -138,11 +138,10 @@ class OcorrenciaConcorrenciaIntegrationTests {
             localizacao.setUf("SP");
             entityManager.persist(localizacao);
 
-            var ocorrencia = service.criar(new OcorrenciaRequest(
+            var ocorrencia = AutenticacaoTeste.executarComo(usuario.getEmail(), usuario.getPerfil().name(), () -> service.criar(new OcorrenciaRequest(
                     "Teste de concorrencia", "Duas alteracoes simultaneas",
-                    usuario.getId(), categoria.getId(), localizacao.getId()));
-            return new Dados(ocorrencia.id(), usuario.getId(),
-                    categoria.getId(), localizacao.getId());
+                    categoria.getId(), localizacao.getId())));
+            return new Dados(ocorrencia.id(), usuario.getId(), categoria.getId(), localizacao.getId(), usuario.getEmail());
         });
     }
 
@@ -186,6 +185,6 @@ class OcorrenciaConcorrenciaIntegrationTests {
     }
 
     private record Dados(Long ocorrenciaId, Long usuarioId,
-                         Long categoriaId, Long localizacaoId) {
+                         Long categoriaId, Long localizacaoId, String email) {
     }
 }

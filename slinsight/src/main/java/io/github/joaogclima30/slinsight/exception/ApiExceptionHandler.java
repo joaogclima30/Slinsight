@@ -8,6 +8,8 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 
 import java.sql.SQLException;
 import java.util.LinkedHashMap;
@@ -91,4 +93,35 @@ public class ApiExceptionHandler {
 
         return false;
     }
+
+    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+    public ResponseEntity<ProblemDetail> tratarParametroInvalido(
+            MethodArgumentTypeMismatchException exception
+    ) {
+        ProblemDetail problema = ProblemDetail.forStatusAndDetail(
+                HttpStatus.BAD_REQUEST,
+                "O parâmetro '" + exception.getName()
+                        + "' possui um valor inválido"
+        );
+
+        problema.setTitle("Parâmetro inválido");
+
+        return ResponseEntity.badRequest().body(problema);
+    }
+
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    public ResponseEntity<ProblemDetail> tratarCorpoInvalido(
+            HttpMessageNotReadableException exception
+    ) {
+        ProblemDetail problema = ProblemDetail.forStatusAndDetail(
+                HttpStatus.BAD_REQUEST,
+                "O corpo da requisição está ausente, contém JSON inválido "
+                        + "ou possui valores incompatíveis com os campos"
+        );
+
+        problema.setTitle("Corpo da requisição inválido");
+
+        return ResponseEntity.badRequest().body(problema);
+    }
+
 }
