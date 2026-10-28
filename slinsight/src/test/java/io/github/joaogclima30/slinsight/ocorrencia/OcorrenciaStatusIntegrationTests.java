@@ -1,4 +1,6 @@
-package io.github.joaogclima30.slinsight;
+package io.github.joaogclima30.slinsight.ocorrencia;
+
+import io.github.joaogclima30.slinsight.suporte.AutenticacaoTeste;
 
 import io.github.joaogclima30.slinsight.categoria.model.Categoria;
 import io.github.joaogclima30.slinsight.historico.repository.HistoricoStatusRepository;
@@ -56,14 +58,14 @@ class OcorrenciaStatusIntegrationTests {
         Localizacao localizacao = new Localizacao();
         localizacao.setCidade("São Paulo");
         localizacao.setUf("SP");
+        localizacao.setAutor(usuario);
         entityManager.persist(localizacao);
 
         var criada = service.criar(new OcorrenciaRequest(
                 "Poste apagado",
                 "Iluminação apagada há três dias",
                 categoria.getId(),
-                localizacao.getId()
-        ));
+                localizacao.getId()));
 
         assertEquals(StatusOcorrencia.ABERTA, criada.status());
 
@@ -137,6 +139,7 @@ class OcorrenciaStatusIntegrationTests {
         Localizacao localizacao = new Localizacao();
         localizacao.setCidade("São Paulo");
         localizacao.setUf("SP");
+        localizacao.setAutor(usuario);
         entityManager.persist(localizacao);
 
         var criada = service.criar(new OcorrenciaRequest(
@@ -199,6 +202,7 @@ class OcorrenciaStatusIntegrationTests {
         Localizacao localizacao = new Localizacao();
         localizacao.setCidade("São Paulo");
         localizacao.setUf("SP");
+        localizacao.setAutor(usuario);
         entityManager.persist(localizacao);
 
         var criada = service.criar(new OcorrenciaRequest(
@@ -285,6 +289,7 @@ class OcorrenciaStatusIntegrationTests {
         Localizacao localizacao = new Localizacao();
         localizacao.setCidade("São Paulo");
         localizacao.setUf("SP");
+        localizacao.setAutor(autor);
         entityManager.persist(localizacao);
 
         var criada = service.criar(new OcorrenciaRequest(

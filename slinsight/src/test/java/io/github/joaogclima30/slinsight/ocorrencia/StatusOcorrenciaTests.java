@@ -1,4 +1,4 @@
-package io.github.joaogclima30.slinsight;
+package io.github.joaogclima30.slinsight.ocorrencia;
 
 import io.github.joaogclima30.slinsight.ocorrencia.model.StatusOcorrencia;
 import org.junit.jupiter.api.Test;

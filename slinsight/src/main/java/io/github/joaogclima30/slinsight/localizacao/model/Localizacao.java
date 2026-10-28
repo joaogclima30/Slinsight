@@ -1,5 +1,6 @@
 package io.github.joaogclima30.slinsight.localizacao.model;
 
+import io.github.joaogclima30.slinsight.usuario.model.Usuario;
 import jakarta.persistence.*;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
@@ -21,6 +22,10 @@ public class Localizacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "autor_id")
+    private Usuario autor;
 
     @Column(length = 200)
     private String logradouro;

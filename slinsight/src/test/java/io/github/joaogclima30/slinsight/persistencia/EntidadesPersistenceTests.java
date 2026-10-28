@@ -1,4 +1,4 @@
-package io.github.joaogclima30.slinsight;
+package io.github.joaogclima30.slinsight.persistencia;
 
 import io.github.joaogclima30.slinsight.categoria.model.Categoria;
 import io.github.joaogclima30.slinsight.historico.model.HistoricoStatus;

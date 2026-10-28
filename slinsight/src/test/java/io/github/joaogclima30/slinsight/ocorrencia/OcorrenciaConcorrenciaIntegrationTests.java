@@ -1,4 +1,6 @@
-package io.github.joaogclima30.slinsight;
+package io.github.joaogclima30.slinsight.ocorrencia;
+
+import io.github.joaogclima30.slinsight.suporte.AutenticacaoTeste;
 
 import io.github.joaogclima30.slinsight.categoria.model.Categoria;
 import io.github.joaogclima30.slinsight.localizacao.model.Localizacao;
@@ -93,7 +95,7 @@ class OcorrenciaConcorrenciaIntegrationTests {
                     primeira.get(20, TimeUnit.SECONDS).status());
             assertEquals(409, segunda.get(20, TimeUnit.SECONDS).intValue());
             assertEquals(StatusOcorrencia.EM_ANALISE,
-                    service.buscarPorId(dados.ocorrenciaId()).status());
+                    AutenticacaoTeste.executarComo(dados.email(), "CIDADAO", () -> service.buscarPorId(dados.ocorrenciaId()).status()));
 
             var historico = jdbc.queryForList("""
                     select status_anterior, status_novo, usuario_id, observacao
@@ -136,6 +138,7 @@ class OcorrenciaConcorrenciaIntegrationTests {
             Localizacao localizacao = new Localizacao();
             localizacao.setCidade("Sao Paulo");
             localizacao.setUf("SP");
+            localizacao.setAutor(usuario);
             entityManager.persist(localizacao);
 
             var ocorrencia = AutenticacaoTeste.executarComo(usuario.getEmail(), usuario.getPerfil().name(), () -> service.criar(new OcorrenciaRequest(

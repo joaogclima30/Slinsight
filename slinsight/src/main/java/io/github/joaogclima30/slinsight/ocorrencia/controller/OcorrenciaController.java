@@ -24,11 +24,10 @@ public class OcorrenciaController {
     private final OcorrenciaService service;
 
     @PostMapping("/criar")
-    public ResponseEntity<OcorrenciaResponse> criar(@Valid @RequestBody OcorrenciaRequest request) {
-        OcorrenciaResponse response = service.criar(request);
-
-        return ResponseEntity
-                .created(URI.create("/ocorrencias/" + response.id()))
+    public ResponseEntity<OcorrenciaResponse> criar(@Valid @RequestBody OcorrenciaRequest request,
+                                                    @RequestHeader(value = "Idempotency-Key", required = false) String chave) {
+        OcorrenciaResponse response = service.criar(request, chave);
+        return ResponseEntity.created(URI.create("/ocorrencias/" + response.id()))
                 .body(response);
     }
 

@@ -1,4 +1,4 @@
-package io.github.joaogclima30.slinsight;
+package io.github.joaogclima30.slinsight.exception;
 
 import io.github.joaogclima30.slinsight.exception.ApiExceptionHandler;
 import org.junit.jupiter.api.BeforeEach;

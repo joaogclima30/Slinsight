@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
+import io.github.joaogclima30.slinsight.usuario.service.UsuarioAutenticadoService;
+import io.github.joaogclima30.slinsight.usuario.model.PerfilUsuario;
 
 @Service
 @RequiredArgsConstructor
@@ -16,10 +18,12 @@ import org.springframework.web.server.ResponseStatusException;
 public class LocalizacaoService {
 
     private final LocalizacaoRepository repository;
+    private final UsuarioAutenticadoService usuarioAutenticadoService;
 
     @Transactional
     public LocalizacaoResponse criar(LocalizacaoRequest request) {
         Localizacao localizacao = new Localizacao();
+        localizacao.setAutor(usuarioAutenticadoService.buscar());
 
         localizacao.setLogradouro(request.logradouro());
         localizacao.setNumero(request.numero());
@@ -35,10 +39,22 @@ public class LocalizacaoService {
     }
 
     public LocalizacaoResponse buscarPorId(Long id) {
+        var usuario = usuarioAutenticadoService.buscar();
+
         Localizacao localizacao = repository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(
                         HttpStatus.NOT_FOUND,
                         "Localização não encontrada"));
+
+        boolean administrador = usuario.getPerfil() == PerfilUsuario.ADMIN;
+
+        boolean autor = localizacao.getAutor() != null && localizacao.getAutor().getId().equals(usuario.getId());
+
+        if (!administrador && !autor) {
+            throw new ResponseStatusException(
+                    HttpStatus.FORBIDDEN,
+                    "Você não tem permissão para consultar esta localização");
+        }
 
         return paraResponse(localizacao);
     }

@@ -1,4 +1,4 @@
-package io.github.joaogclima30.slinsight;
+package io.github.joaogclima30.slinsight.common.dto;
 
 import io.github.joaogclima30.slinsight.common.dto.PaginaResponse;
 import org.junit.jupiter.api.Test;

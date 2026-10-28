@@ -1,4 +1,4 @@
-package io.github.joaogclima30.slinsight;
+package io.github.joaogclima30.slinsight.usuario;
 
 import io.github.joaogclima30.slinsight.usuario.dto.UsuarioRequest;
 import io.github.joaogclima30.slinsight.usuario.model.PerfilUsuario;

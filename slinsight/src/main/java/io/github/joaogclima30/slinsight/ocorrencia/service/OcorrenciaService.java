@@ -20,6 +20,13 @@ import org.springframework.data.domain.Pageable;
 import io.github.joaogclima30.slinsight.ocorrencia.specification.OcorrenciaSpecification;
 import io.github.joaogclima30.slinsight.usuario.service.UsuarioAutenticadoService;
 import io.github.joaogclima30.slinsight.usuario.model.PerfilUsuario;
+import io.github.joaogclima30.slinsight.ocorrencia.model.OcorrenciaIdempotencia;
+import io.github.joaogclima30.slinsight.ocorrencia.repository.OcorrenciaIdempotenciaRepository;
+import io.github.joaogclima30.slinsight.usuario.repository.UsuarioRepository;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.HexFormat;
 
 @Service
 @RequiredArgsConstructor
@@ -31,6 +38,9 @@ public class OcorrenciaService {
     private final LocalizacaoRepository localizacaoRepository;
     private final HistoricoStatusRepository historicoRepository;
     private final UsuarioAutenticadoService usuarioAutenticadoService;
+    private final UsuarioRepository usuarioRepository;
+    private final OcorrenciaIdempotenciaRepository idempotenciaRepository;
+
 
     @Transactional
     public OcorrenciaResponse criar(OcorrenciaRequest request) {
@@ -46,6 +56,13 @@ public class OcorrenciaService {
                         HttpStatus.NOT_FOUND,
                         "Localização não encontrada"));
 
+        boolean administrador = usuario.getPerfil() == PerfilUsuario.ADMIN;
+
+        boolean autorDaLocalizacao = localizacao.getAutor() != null && localizacao.getAutor().getId().equals(usuario.getId());
+
+        if (!administrador && !autorDaLocalizacao) {
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Você não tem permissão para usar esta localização");
+        }
 
         if (!Boolean.TRUE.equals(categoria.getAtivo())) {
             throw new ResponseStatusException(
@@ -78,6 +95,73 @@ public class OcorrenciaService {
         historicoRepository.save(historico);
 
         return paraResponse(salva);
+    }
+
+    @Transactional
+    public OcorrenciaResponse criar(OcorrenciaRequest request, String chave) {
+        if (chave == null) {
+            return criar(request);
+        }
+
+        if (chave.isBlank() || chave.length() > 100) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "A chave de idempotência deve ter entre 1 e 100 caracteres");
+        }
+
+        var autenticado = usuarioAutenticadoService.buscar();
+
+        var usuario = usuarioRepository
+                .buscarPorIdParaAtualizar(autenticado.getId())
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.UNAUTHORIZED,
+                        "Usuário não encontrado"));
+
+        String assinatura = calcularAssinatura(request);
+
+        var registroExistente = idempotenciaRepository.findByUsuarioIdAndChave(usuario.getId(), chave);
+
+        if (registroExistente.isPresent()) {
+            var registro = registroExistente.get();
+
+            if (!registro.getAssinatura().equals(assinatura)) {
+                throw new ResponseStatusException(HttpStatus.CONFLICT, "Esta chave de idempotência já foi usada com outros dados");
+            }
+            return buscarPorId(registro.getOcorrenciaId());
+        }
+
+        OcorrenciaResponse criada = criar(request);
+
+        var registro = new OcorrenciaIdempotencia();
+        registro.setUsuarioId(usuario.getId());
+        registro.setChave(chave);
+        registro.setAssinatura(assinatura);
+        registro.setOcorrenciaId(criada.id());
+
+        idempotenciaRepository.saveAndFlush(registro);
+
+        return criada;
+    }
+
+    private String calcularAssinatura(OcorrenciaRequest request) {
+        String titulo = request.titulo().strip();
+        String descricao = request.descricao().strip();
+
+        // Os comprimentos delimitam os textos sem ambiguidade.
+        String conteudo =
+                titulo.length() + ":" + titulo
+                        + descricao.length() + ":" + descricao
+                        + ":" + request.categoriaId()
+                        + ":" + request.localizacaoId();
+
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+
+            byte[] hash = digest.digest(
+                    conteudo.getBytes(StandardCharsets.UTF_8));
+
+            return HexFormat.of().formatHex(hash);
+        } catch (NoSuchAlgorithmException exception) {
+            throw new IllegalStateException("Não foi possível calcular a assinatura da requisição", exception);
+        }
     }
 
     @Transactional

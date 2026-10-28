@@ -1,0 +1,217 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< io.github.joaogclima30:slinsight >------------------
+[INFO] Building  0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ slinsight ---
+[INFO] Deleting E:\estudoSpring\slinsight\slinsight\target
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ slinsight ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 2 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ slinsight ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 42 source files with javac [debug parameters release 21] to target\classes
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ slinsight ---
+[INFO] skip non existing resourceDirectory E:\estudoSpring\slinsight\slinsight\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ slinsight ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 15 source files with javac [debug parameters release 21] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ slinsight ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running io.github.joaogclima30.slinsight.aplicacao.SlinsightApplicationTests
+10:38:28.047 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [io.github.joaogclima30.slinsight.aplicacao.SlinsightApplicationTests]: SlinsightApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+10:38:28.137 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration io.github.joaogclima30.slinsight.SlinsightApplication for test class io.github.joaogclima30.slinsight.aplicacao.SlinsightApplicationTests
+10:38:28.194 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [io.github.joaogclima30.slinsight.aplicacao.SlinsightApplicationTests]: SlinsightApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+10:38:28.195 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration io.github.joaogclima30.slinsight.SlinsightApplication for test class io.github.joaogclima30.slinsight.aplicacao.SlinsightApplicationTests
+10:38:28.249 [main] INFO org.springframework.boot.devtools.restart.RestartApplicationListener -- Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.2)
+
+2026-10-28T10:38:28.478-03:00  INFO 11152 --- [slinsight] [           main] i.g.j.s.a.SlinsightApplicationTests      : Starting SlinsightApplicationTests using Java 21.0.8 with PID 11152 (started by fcgam in E:\estudoSpring\slinsight\slinsight)
+2026-10-28T10:38:28.479-03:00  INFO 11152 --- [slinsight] [           main] i.g.j.s.a.SlinsightApplicationTests      : No active profile set, falling back to 1 default profile: "default"
+2026-10-28T10:38:29.079-03:00  INFO 11152 --- [slinsight] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-28T10:38:29.156-03:00  INFO 11152 --- [slinsight] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 67 ms. Found 5 JPA repository interfaces.
+2026-10-28T10:38:29.852-03:00  INFO 11152 --- [slinsight] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-28T10:38:30.071-03:00  INFO 11152 --- [slinsight] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5b7ee56c
+2026-10-28T10:38:30.073-03:00  INFO 11152 --- [slinsight] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-28T10:38:30.091-03:00  INFO 11152 --- [slinsight] [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/slinsight (PostgreSQL 17.11)
+2026-10-28T10:38:30.156-03:00  INFO 11152 --- [slinsight] [           main] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.022s)
+2026-10-28T10:38:30.201-03:00  INFO 11152 --- [slinsight] [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": 2
+2026-10-28T10:38:30.204-03:00  INFO 11152 --- [slinsight] [           main] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2026-10-28T10:38:30.304-03:00  INFO 11152 --- [slinsight] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-28T10:38:30.348-03:00  INFO 11152 --- [slinsight] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.13.Final
+2026-10-28T10:38:30.694-03:00  INFO 11152 --- [slinsight] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-28T10:38:30.753-03:00  INFO 11152 --- [slinsight] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/slinsight]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 17.11
+	Default catalog/schema: slinsight/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-28T10:38:31.387-03:00  INFO 11152 --- [slinsight] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-28T10:38:31.419-03:00  INFO 11152 --- [slinsight] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-28T10:38:31.493-03:00  INFO 11152 --- [slinsight] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-28T10:38:32.273-03:00  INFO 11152 --- [slinsight] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name usuarioDetailsService
+2026-10-28T10:38:32.884-03:00  INFO 11152 --- [slinsight] [           main] i.g.j.s.a.SlinsightApplicationTests      : Started SlinsightApplicationTests in 4.643 seconds (process running for 5.603)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A Java agent has been loaded dynamically (C:\Users\fcgam\.m2\repository\net\bytebuddy\byte-buddy-agent\1.18.15\byte-buddy-agent-1.18.15.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.331 s -- in io.github.joaogclima30.slinsight.aplicacao.SlinsightApplicationTests
+[INFO] Running io.github.joaogclima30.slinsight.common.dto.PaginaResponseTests
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s -- in io.github.joaogclima30.slinsight.common.dto.PaginaResponseTests
+[INFO] Running io.github.joaogclima30.slinsight.exception.ApiExceptionHandlerTests
+2026-10-28T10:38:33.215-03:00  INFO 11152 --- [slinsight] [           main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2026-10-28T10:38:33.215-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-28T10:38:33.216-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-10-28T10:38:33.297-03:00  INFO 11152 --- [slinsight] [           main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2026-10-28T10:38:33.297-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-28T10:38:33.297-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-10-28T10:38:33.308-03:00  INFO 11152 --- [slinsight] [           main] o.s.mock.web.MockServletContext          : Initializing Spring TestDispatcherServlet ''
+2026-10-28T10:38:33.308-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-28T10:38:33.309-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.152 s -- in io.github.joaogclima30.slinsight.exception.ApiExceptionHandlerTests
+[INFO] Running io.github.joaogclima30.slinsight.ocorrencia.OcorrenciaConcorrenciaIntegrationTests
+2026-10-28T10:38:33.355-03:00  INFO 11152 --- [slinsight] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [io.github.joaogclima30.slinsight.ocorrencia.OcorrenciaConcorrenciaIntegrationTests]: OcorrenciaConcorrenciaIntegrationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-28T10:38:33.372-03:00  INFO 11152 --- [slinsight] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration io.github.joaogclima30.slinsight.SlinsightApplication for test class io.github.joaogclima30.slinsight.ocorrencia.OcorrenciaConcorrenciaIntegrationTests
+2026-10-28T10:38:33.374-03:00  INFO 11152 --- [slinsight] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [io.github.joaogclima30.slinsight.ocorrencia.OcorrenciaConcorrenciaIntegrationTests]: OcorrenciaConcorrenciaIntegrationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-28T10:38:33.375-03:00  INFO 11152 --- [slinsight] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration io.github.joaogclima30.slinsight.SlinsightApplication for test class io.github.joaogclima30.slinsight.ocorrencia.OcorrenciaConcorrenciaIntegrationTests
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.314 s -- in io.github.joaogclima30.slinsight.ocorrencia.OcorrenciaConcorrenciaIntegrationTests
+[INFO] Running io.github.joaogclima30.slinsight.ocorrencia.OcorrenciaConsultaIntegrationTests
+2026-10-28T10:38:33.670-03:00  INFO 11152 --- [slinsight] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [io.github.joaogclima30.slinsight.ocorrencia.OcorrenciaConsultaIntegrationTests]: OcorrenciaConsultaIntegrationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-28T10:38:33.671-03:00  INFO 11152 --- [slinsight] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration io.github.joaogclima30.slinsight.SlinsightApplication for test class io.github.joaogclima30.slinsight.ocorrencia.OcorrenciaConsultaIntegrationTests
+2026-10-28T10:38:33.672-03:00  INFO 11152 --- [slinsight] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [io.github.joaogclima30.slinsight.ocorrencia.OcorrenciaConsultaIntegrationTests]: OcorrenciaConsultaIntegrationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-28T10:38:33.672-03:00  INFO 11152 --- [slinsight] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration io.github.joaogclima30.slinsight.SlinsightApplication for test class io.github.joaogclima30.slinsight.ocorrencia.OcorrenciaConsultaIntegrationTests
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.603 s -- in io.github.joaogclima30.slinsight.ocorrencia.OcorrenciaConsultaIntegrationTests
+[INFO] Running io.github.joaogclima30.slinsight.ocorrencia.OcorrenciaStatusIntegrationTests
+2026-10-28T10:38:34.274-03:00  INFO 11152 --- [slinsight] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [io.github.joaogclima30.slinsight.ocorrencia.OcorrenciaStatusIntegrationTests]: OcorrenciaStatusIntegrationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-28T10:38:34.274-03:00  INFO 11152 --- [slinsight] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration io.github.joaogclima30.slinsight.SlinsightApplication for test class io.github.joaogclima30.slinsight.ocorrencia.OcorrenciaStatusIntegrationTests
+2026-10-28T10:38:34.275-03:00  INFO 11152 --- [slinsight] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [io.github.joaogclima30.slinsight.ocorrencia.OcorrenciaStatusIntegrationTests]: OcorrenciaStatusIntegrationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-28T10:38:34.275-03:00  INFO 11152 --- [slinsight] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration io.github.joaogclima30.slinsight.SlinsightApplication for test class io.github.joaogclima30.slinsight.ocorrencia.OcorrenciaStatusIntegrationTests
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.164 s -- in io.github.joaogclima30.slinsight.ocorrencia.OcorrenciaStatusIntegrationTests
+[INFO] Running io.github.joaogclima30.slinsight.ocorrencia.StatusOcorrenciaTests
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s -- in io.github.joaogclima30.slinsight.ocorrencia.StatusOcorrenciaTests
+[INFO] Running io.github.joaogclima30.slinsight.persistencia.EntidadesPersistenceTests
+2026-10-28T10:38:34.439-03:00  INFO 11152 --- [slinsight] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [io.github.joaogclima30.slinsight.persistencia.EntidadesPersistenceTests]: EntidadesPersistenceTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-28T10:38:34.452-03:00  INFO 11152 --- [slinsight] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration io.github.joaogclima30.slinsight.SlinsightApplication for test class io.github.joaogclima30.slinsight.persistencia.EntidadesPersistenceTests
+2026-10-28T10:38:34.453-03:00  INFO 11152 --- [slinsight] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [io.github.joaogclima30.slinsight.persistencia.EntidadesPersistenceTests]: EntidadesPersistenceTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-28T10:38:34.454-03:00  INFO 11152 --- [slinsight] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration io.github.joaogclima30.slinsight.SlinsightApplication for test class io.github.joaogclima30.slinsight.persistencia.EntidadesPersistenceTests
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s -- in io.github.joaogclima30.slinsight.persistencia.EntidadesPersistenceTests
+[INFO] Running io.github.joaogclima30.slinsight.seguranca.AutenticacaoBasicHttpTests
+2026-10-28T10:38:34.470-03:00  INFO 11152 --- [slinsight] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [io.github.joaogclima30.slinsight.seguranca.AutenticacaoBasicHttpTests]: AutenticacaoBasicHttpTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-28T10:38:34.483-03:00  INFO 11152 --- [slinsight] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration io.github.joaogclima30.slinsight.SlinsightApplication for test class io.github.joaogclima30.slinsight.seguranca.AutenticacaoBasicHttpTests
+2026-10-28T10:38:34.484-03:00  INFO 11152 --- [slinsight] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [io.github.joaogclima30.slinsight.seguranca.AutenticacaoBasicHttpTests]: AutenticacaoBasicHttpTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-28T10:38:34.484-03:00  INFO 11152 --- [slinsight] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [io.github.joaogclima30.slinsight.suporte.SegurancaHttpTestSupport]: SegurancaHttpTestSupport does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-28T10:38:34.484-03:00  INFO 11152 --- [slinsight] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration io.github.joaogclima30.slinsight.SlinsightApplication for test class io.github.joaogclima30.slinsight.seguranca.AutenticacaoBasicHttpTests
+2026-10-28T10:38:34.489-03:00  INFO 11152 --- [slinsight] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-28T10:38:34.489-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-28T10:38:34.490-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-10-28T10:38:34.682-03:00  INFO 11152 --- [slinsight] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-28T10:38:34.683-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-28T10:38:34.683-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-10-28T10:38:34.803-03:00  INFO 11152 --- [slinsight] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-28T10:38:34.803-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-28T10:38:34.804-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.472 s -- in io.github.joaogclima30.slinsight.seguranca.AutenticacaoBasicHttpTests
+[INFO] Running io.github.joaogclima30.slinsight.seguranca.AutenticacaoSessaoHttpTests
+2026-10-28T10:38:34.942-03:00  INFO 11152 --- [slinsight] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [io.github.joaogclima30.slinsight.seguranca.AutenticacaoSessaoHttpTests]: AutenticacaoSessaoHttpTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-28T10:38:34.942-03:00  INFO 11152 --- [slinsight] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration io.github.joaogclima30.slinsight.SlinsightApplication for test class io.github.joaogclima30.slinsight.seguranca.AutenticacaoSessaoHttpTests
+2026-10-28T10:38:34.943-03:00  INFO 11152 --- [slinsight] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [io.github.joaogclima30.slinsight.seguranca.AutenticacaoSessaoHttpTests]: AutenticacaoSessaoHttpTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-28T10:38:34.943-03:00  INFO 11152 --- [slinsight] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [io.github.joaogclima30.slinsight.suporte.SegurancaHttpTestSupport]: SegurancaHttpTestSupport does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-28T10:38:34.943-03:00  INFO 11152 --- [slinsight] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration io.github.joaogclima30.slinsight.SlinsightApplication for test class io.github.joaogclima30.slinsight.seguranca.AutenticacaoSessaoHttpTests
+2026-10-28T10:38:34.945-03:00  INFO 11152 --- [slinsight] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-28T10:38:34.945-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-28T10:38:34.946-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-10-28T10:38:35.074-03:00  INFO 11152 --- [slinsight] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-28T10:38:35.074-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-28T10:38:35.074-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.271 s -- in io.github.joaogclima30.slinsight.seguranca.AutenticacaoSessaoHttpTests
+[INFO] Running io.github.joaogclima30.slinsight.seguranca.AutorizacaoOcorrenciaHttpTests
+2026-10-28T10:38:35.213-03:00  INFO 11152 --- [slinsight] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [io.github.joaogclima30.slinsight.seguranca.AutorizacaoOcorrenciaHttpTests]: AutorizacaoOcorrenciaHttpTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-28T10:38:35.213-03:00  INFO 11152 --- [slinsight] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration io.github.joaogclima30.slinsight.SlinsightApplication for test class io.github.joaogclima30.slinsight.seguranca.AutorizacaoOcorrenciaHttpTests
+2026-10-28T10:38:35.214-03:00  INFO 11152 --- [slinsight] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [io.github.joaogclima30.slinsight.seguranca.AutorizacaoOcorrenciaHttpTests]: AutorizacaoOcorrenciaHttpTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-28T10:38:35.214-03:00  INFO 11152 --- [slinsight] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [io.github.joaogclima30.slinsight.suporte.SegurancaHttpTestSupport]: SegurancaHttpTestSupport does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-28T10:38:35.214-03:00  INFO 11152 --- [slinsight] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration io.github.joaogclima30.slinsight.SlinsightApplication for test class io.github.joaogclima30.slinsight.seguranca.AutorizacaoOcorrenciaHttpTests
+2026-10-28T10:38:35.217-03:00  INFO 11152 --- [slinsight] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-28T10:38:35.217-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-28T10:38:35.217-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-10-28T10:38:35.222-03:00  INFO 11152 --- [slinsight] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-28T10:38:35.222-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-28T10:38:35.222-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-10-28T10:38:35.225-03:00  INFO 11152 --- [slinsight] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-28T10:38:35.225-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-28T10:38:35.225-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-10-28T10:38:35.250-03:00  INFO 11152 --- [slinsight] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-28T10:38:35.250-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-28T10:38:35.251-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.040 s -- in io.github.joaogclima30.slinsight.seguranca.AutorizacaoOcorrenciaHttpTests
+[INFO] Running io.github.joaogclima30.slinsight.seguranca.AutorizacaoUsuarioHttpTests
+2026-10-28T10:38:35.254-03:00  INFO 11152 --- [slinsight] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [io.github.joaogclima30.slinsight.seguranca.AutorizacaoUsuarioHttpTests]: AutorizacaoUsuarioHttpTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-28T10:38:35.254-03:00  INFO 11152 --- [slinsight] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration io.github.joaogclima30.slinsight.SlinsightApplication for test class io.github.joaogclima30.slinsight.seguranca.AutorizacaoUsuarioHttpTests
+2026-10-28T10:38:35.254-03:00  INFO 11152 --- [slinsight] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [io.github.joaogclima30.slinsight.seguranca.AutorizacaoUsuarioHttpTests]: AutorizacaoUsuarioHttpTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-28T10:38:35.255-03:00  INFO 11152 --- [slinsight] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [io.github.joaogclima30.slinsight.suporte.SegurancaHttpTestSupport]: SegurancaHttpTestSupport does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-28T10:38:35.255-03:00  INFO 11152 --- [slinsight] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration io.github.joaogclima30.slinsight.SlinsightApplication for test class io.github.joaogclima30.slinsight.seguranca.AutorizacaoUsuarioHttpTests
+2026-10-28T10:38:35.257-03:00  INFO 11152 --- [slinsight] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-28T10:38:35.257-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-28T10:38:35.257-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-10-28T10:38:35.442-03:00  INFO 11152 --- [slinsight] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-28T10:38:35.442-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-28T10:38:35.443-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-10-28T10:38:35.626-03:00  INFO 11152 --- [slinsight] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-28T10:38:35.626-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-28T10:38:35.626-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-10-28T10:38:35.630-03:00  INFO 11152 --- [slinsight] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-28T10:38:35.630-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-28T10:38:35.630-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-10-28T10:38:35.757-03:00  INFO 11152 --- [slinsight] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-28T10:38:35.757-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-28T10:38:35.758-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-10-28T10:38:35.879-03:00  INFO 11152 --- [slinsight] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-28T10:38:35.879-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-28T10:38:35.879-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-10-28T10:38:35.881-03:00  INFO 11152 --- [slinsight] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-10-28T10:38:35.882-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-10-28T10:38:35.882-03:00  INFO 11152 --- [slinsight] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.753 s -- in io.github.joaogclima30.slinsight.seguranca.AutorizacaoUsuarioHttpTests
+[INFO] Running io.github.joaogclima30.slinsight.usuario.UsuarioCadastroIntegrationTests
+2026-10-28T10:38:36.007-03:00  INFO 11152 --- [slinsight] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [io.github.joaogclima30.slinsight.usuario.UsuarioCadastroIntegrationTests]: UsuarioCadastroIntegrationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-28T10:38:36.020-03:00  INFO 11152 --- [slinsight] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration io.github.joaogclima30.slinsight.SlinsightApplication for test class io.github.joaogclima30.slinsight.usuario.UsuarioCadastroIntegrationTests
+2026-10-28T10:38:36.021-03:00  INFO 11152 --- [slinsight] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [io.github.joaogclima30.slinsight.usuario.UsuarioCadastroIntegrationTests]: UsuarioCadastroIntegrationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-28T10:38:36.022-03:00  INFO 11152 --- [slinsight] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration io.github.joaogclima30.slinsight.SlinsightApplication for test class io.github.joaogclima30.slinsight.usuario.UsuarioCadastroIntegrationTests
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.197 s -- in io.github.joaogclima30.slinsight.usuario.UsuarioCadastroIntegrationTests
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 49, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  15.103 s
+[INFO] Finished at: 2026-10-28T10:38:36-03:00
+[INFO] ------------------------------------------------------------------------

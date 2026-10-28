@@ -38,7 +38,6 @@ public class HistoricoStatusService {
                 historico.getStatusAnterior(),
                 historico.getStatusNovo(),
                 historico.getObservacao(),
-                historico.getAlteradoEm()
-        );
+                historico.getAlteradoEm());
     }
 }

@@ -1,5 +1,6 @@
 package io.github.joaogclima30.slinsight.usuario.controller;
 
+import io.github.joaogclima30.slinsight.usuario.dto.UsuarioAutenticadoResponse;
 import io.github.joaogclima30.slinsight.usuario.dto.UsuarioRequest;
 import io.github.joaogclima30.slinsight.usuario.dto.UsuarioResponse;
 import io.github.joaogclima30.slinsight.usuario.service.UsuarioService;
@@ -18,9 +19,7 @@ public class UsuarioController {
     private final UsuarioService service;
 
     @PostMapping
-    public ResponseEntity<UsuarioResponse> criar(
-            @Valid @RequestBody UsuarioRequest request
-    ) {
+    public ResponseEntity<UsuarioResponse> criar(@Valid @RequestBody UsuarioRequest request) {
         UsuarioResponse response = service.criar(request);
 
         return ResponseEntity
@@ -31,6 +30,11 @@ public class UsuarioController {
     @GetMapping("/{id}")
     public UsuarioResponse buscarPorId(@PathVariable Long id) {
         return service.buscarPorId(id);
+    }
+
+    @GetMapping("/me")
+    public UsuarioAutenticadoResponse buscarMeuCadastro() {
+        return service.buscarMeuCadastro();
     }
 
 }
